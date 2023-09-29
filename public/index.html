@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Prueba de Node.js</title>
-  <meta charset="UTF-8">
+  <title>Traductor de Español a Idioma P</title>
 </head>
 <body>
-  <form action="recuperardatos" method="post">
-  Ingrese su nombre de usuario:
-  <input type="text" name="nombre" size="30"><br>
-  Ingrese clave:
-  <input type="password" name="clave" size="30"><br>
-  <input type="submit" value="Enviar">
-</form>
+  <h1>Traductor de Español a Idioma P</h1>
+  <form action="/traducir" method="post">
+    <label for="texto">Ingrese texto en español:</label>
+    <input type="text" id="texto" name="texto" required>
+    <button type="submit">Traducir</button>
+  </form>
 </body>
 </html>
