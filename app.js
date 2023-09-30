@@ -16,9 +16,9 @@ const servidor = http.createServer((pedido, respuesta) => {
       respuesta.writeHead(200, { 'Content-Type': 'text/html' });
       respuesta.write('<!DOCTYPE html><html><head><title>Traductor de Español a Idioma P</title></head><body>');
       respuesta.write('<h1>Traducción a Idioma P</h1>');
-      respuesta.write('<p>Texto original:</p>');
+      respuesta.write('<h3>Texto original:</h3>');
       respuesta.write(`<p>${textoOriginal}</p>`);
-      respuesta.write('<p>Texto traducido:</p>');
+      respuesta.write('<h3>Texto traducido:</h3>');
       respuesta.write(`<p>${textoTraducido}</p>`);
       respuesta.write('<a href="/">Volver</a>');
       respuesta.write('</body></html>');
@@ -26,14 +26,12 @@ const servidor = http.createServer((pedido, respuesta) => {
     });
   } else {
     // Mostrar el formulario si no se ha enviado un POST
-    const formularioHTML = fs.readFileSync('formulario.html', 'utf-8');
+    const formularioHTML = fs.readFileSync('public/index.html', 'utf-8');
     respuesta.writeHead(200, { 'Content-Type': 'text/html' });
     respuesta.write(formularioHTML);
     respuesta.end();
   }
 });
-
-servidor.listen(8888);
 
 function traducirAP(texto) {
   const vocales = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
@@ -50,4 +48,7 @@ function traducirAP(texto) {
   return textoTraducido;
 }
 
-console.log('Servidor web iniciado en http://localhost:8888/');
+// const PORT = process.env.PORT || 3000;
+// servidor.listen(PORT, () => {
+//     console.log(`Servidor Web iniciado en el puerto ${PORT}`);
+// });
